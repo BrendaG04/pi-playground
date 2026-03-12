@@ -1,11 +1,15 @@
 import time
-from gpiozero import LED
+import threading
+from gpiozero import LED, Button
 
+button = Button(2)
 red = LED(17)
 green = LED(27)
 blue = LED(22)
 yellow = LED(24)
 white = LED(23)
+
+is_running = False
 
 def cycle_colors():
 	leds = [
@@ -16,15 +20,44 @@ def cycle_colors():
 		(white, "WHITE"),
 	]
 
-	while True:
+	while is_running:
 		for led, name in leds:
+			if not is_running:
+				break
+
 			led.on()
 			print(f"{name} ON")
 			time.sleep(1)
 			led.off()
 			print(f"{name} OFF")
 
-if __name__ == "__main__":
+def pressed():
+	global is_running
+	
+	if not is_running:
+		is_running = True
+		print("===========Cycle Started!!!===================")
+		threading.Thread(target=cycle_colors).start()
+	else:
+		is_running = False
+		released()
+
+def released():
+	red.off()
+	green.off()
+	white.off()
+	yellow.off()
+	blue.off()
+	print("===============Stopped====================")
+
+button.when_pressed = pressed
+
+
+from signal import pause
+pause()
+
+'''
+  if __name__ == "__main__":
 	try:
 		cycle_colors()
 	except KeyboardInterrupt:
@@ -34,4 +67,4 @@ if __name__ == "__main__":
 		yellow.off()
 		blue.off()
 		print("Stopped.")
-
+'''
