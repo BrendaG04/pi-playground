@@ -5,7 +5,7 @@
 import time
 import random
 from typing import List
-from src.led_controller import LEDController
+from led_controller import LEDController
 
 #Collection of LED Pattern animations
 class LEDPatterns:

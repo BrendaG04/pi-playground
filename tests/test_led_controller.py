@@ -16,7 +16,9 @@ def mock_led_controller():
 		pin_mapping = {
 			'red': 17,
 			'green': 27,
-			'blue': 22
+			'blue': 22,
+			'yellow': 24,
+			'white': 23
 		}
 
 		controller = LEDController(pin_mapping)
