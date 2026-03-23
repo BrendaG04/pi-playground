@@ -4,4 +4,11 @@
 venv/
 .lgd-nfy*
 __pycache__/
-
+*.pyo
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.log
+.DS_Store
+EOF

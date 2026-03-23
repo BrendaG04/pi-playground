@@ -22,6 +22,17 @@ def show_state(state: str):
 	elif state == "HOT":
 		red.on()
 
+def run_test_step(step: int) -> str:
+	all_off()
+	if step % 3 == 0:
+		green.on()
+		return "TEST_GREEN"
+	elif step % 3 == 1:
+		yellow.on()
+		return "TEST_YELLOW"
+	else:
+		red.on()
+		return "TEST_RED"
 
 def main():
 	try:
@@ -37,3 +48,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+

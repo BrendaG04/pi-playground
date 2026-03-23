@@ -1,0 +1,4 @@
+gpiozero>=2.0
+pytest>=7.0
+pytest-cov>=4.0
+pigpio>=1.78
