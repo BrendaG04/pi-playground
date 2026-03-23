@@ -10,7 +10,7 @@ from src.led_controller import LEDController
 #Collection of LED Pattern animations
 class LEDPatterns:
 
-	def ___init__(self, controller: LEDController):
+	def __init_(self, controller: LEDController):
 		self.controller = controller
 
 	#Pulse Effect
@@ -24,7 +24,7 @@ class LEDPatterns:
 			time.sleep(duration / ( 2 * steps))
 
 		#fade out
-		for i in range(steps, 0, -1)
+		for i in range(steps, 0, -1):
 			led.value = i / steps
 			time.sleep(duration / ( 2 * steps))
 
@@ -37,7 +37,7 @@ class LEDPatterns:
 		while time.time() - start_time < duration:
 			led_name = random.choice(led_names)
 			self.controller.set_led(led_name, True)
-			time.sleep(random.uniform(0.1, 0.5)
+			time.sleep(random.uniform(0.1, 0.5))
 			self.controller.set_led(led_name, False)
 			time.sleep(random.uniform(0.1, 0.3))
 
@@ -48,7 +48,7 @@ class LEDPatterns:
 				self.controller.set_led(name, True)
 				if i>0:
 					self.controller.set_led(led_names[i-1], False)
-				time.skeep()
+				time.sleep()
 			self.controller.set_led(led_names[-1], False)
 
 

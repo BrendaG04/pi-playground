@@ -10,7 +10,7 @@ from src.led_controller import LEDController
 #Led controller w mocked gpio
 @pytest.fixture
 def mock_led_controller():
-	with patch('src.led_controller.LED') as mock.led:
+	with patch('src.led_controller.LED') as mock_led:
 		mock_led.return_value = Mock()
 
 		pin_mapping = {

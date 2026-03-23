@@ -2,7 +2,6 @@
 	Tests for temperature pattern
 """
 import pytest
-from agent.temperature import classify_temp
 from src.temperature import (
 	classify_temp,
 	celsius_to_fahrenheit,
@@ -60,7 +59,7 @@ class TestTemperatureConversion:
 #Test temp file reading
 class TestReadTemperature:
 
-	def test_read_real_temp(self)"
+	def test_read_real_temp(self):
 		try:
 			temp = read_cpu_temp_c()
 			assert 20 < temp < 100

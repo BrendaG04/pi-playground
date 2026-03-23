@@ -10,17 +10,17 @@ from gpiozero import LED
 class LEDController:
 
 	#Initialize led controller
-	def __init__(self, pi_mapping:dict):
-		self.leds = {name: LED(pin) for name in pin_mapping.items()}
+	def __init__(self, pin_mapping:dict):
+		self.leds = {name: LED(pin) for name, pin in pin_mapping.items()}
 
 	#Turns off all LEDS
 	def all_off(self):
-		for led in self.leds.values:
+		for led in self.leds.values():
 			led.off()
 
 	#Turns on all LEDS
 	def all_on(self):
-		for led in self.leds.values:
+		for led in self.leds.values():
 			led.on()
 
 	#Setting specific LED state

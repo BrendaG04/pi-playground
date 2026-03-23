@@ -14,15 +14,18 @@ class TemperatureError(Exception):
 def read_cpu_temp_c(path: str = THERMAL_PATH) -> float:
 	try:
 		with open(path, "r") as f:
-		raw = f.read().strip()
-		return int(raw)/1000.0
+			raw = f.read().strip()
+			return int(raw)/1000.0
 	except FileNotFoundError:
 		raise TemperatureError(f"Thermal File not Found: {path}")
 	except (ValueError, IOError) as e:
-		rasie TemperatureError(f"Failed to Read Temperature: {e}")
+		raise TemperatureError(f"Failed to Read Temperature: {e}")
 
 #Classifies the temp in thermal states
 def classify_temp(temp_c: float) -> str:
+	if temp_c < 0:
+		raise ValueError(f"Temperature cannot be negative: {temp_c}")
+
 	if temp_c < 55:
 		return "NORMAL"
 	elif temp_c < 70:
@@ -33,6 +36,6 @@ def classify_temp(temp_c: float) -> str:
 		return "CRITICAL"
 
 #Converts celcius to fahrenheit
-def celcius_to_fahrenheit(temp_c : float) -> float:
+def celsius_to_fahrenheit(temp_c : float) -> float:
 	return (temp_c * 9/5) + 32
 
