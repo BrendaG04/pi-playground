@@ -53,4 +53,4 @@ class TestLEDController:
 
 	def test_invalid_led_name(self, mock_led_controller):
 		with pytest.raises(ValueError, match="Unknown LED"):
-			mock_led_controller.set_led('yellow', True)
+			mock_led_controller.set_led('purple', True)

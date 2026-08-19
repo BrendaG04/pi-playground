@@ -1,5 +1,5 @@
 import time
-from temperature import read_cpu_temp_c, classify_temp
+from src.temperature import read_cpu_temp_c, classify_temp
 
 from gpiozero import LED
 

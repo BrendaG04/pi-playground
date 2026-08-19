@@ -10,7 +10,7 @@ from led_controller import LEDController
 #Collection of LED Pattern animations
 class LEDPatterns:
 
-	def __init_(self, controller: LEDController):
+	def __init__(self, controller: LEDController):
 		self.controller = controller
 
 	#Pulse Effect
@@ -48,7 +48,5 @@ class LEDPatterns:
 				self.controller.set_led(name, True)
 				if i>0:
 					self.controller.set_led(led_names[i-1], False)
-				time.sleep()
+				time.sleep(0.1)
 			self.controller.set_led(led_names[-1], False)
-
-
